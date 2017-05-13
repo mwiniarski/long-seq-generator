@@ -8,7 +8,7 @@ class Input {
 public:
     Input(int argc, const char** argv);
 
-    float getErrorRate() {return errorRate;}
+    int getErrorRate() {return errorRate;}
     int getReadsLength() {return readsLength;}
     int getCoverage() {return coverage;}
     int getSequenceLength() {return sequenceLength;}
@@ -19,7 +19,7 @@ private:
     int sequenceLength;
     int coverage;
     int readsLength;
-    float errorRate;
+    int errorRate;
 };
 
 #endif // INPUT_H_

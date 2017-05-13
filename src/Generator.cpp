@@ -47,7 +47,7 @@ void Generator::createAndSaveReads()
     //cuts
     std::uniform_int_distribution<> dis(0, input->getSequenceLength() - length);
     //error places
-    std::uniform_int_distribution<> err(0, length);
+    std::uniform_int_distribution<> err(0, length-1);
     //error bases
     std::uniform_int_distribution<> base(0, 3);
 
@@ -55,7 +55,7 @@ void Generator::createAndSaveReads()
     std::unique_ptr<char[]> cut(new char[length]);
     std::string str("@read_0\n");
 
-    int readsCount = input->getSequenceLength() / length * input->getCoverage();
+    int readsCount = ceil(input->getSequenceLength() / (float)length * input->getCoverage());
     unsigned char* startPosition;
     char a;
     int chosenBase, errorPlace;
@@ -66,7 +66,7 @@ void Generator::createAndSaveReads()
         std::copy(startPosition, startPosition + length, cut.get());
 
         //apply errors
-        for(int j = 0; j < input->getErrorRate() * length; j++)
+        for(int j = 0; j < input->getErrorRate() * length / 100; j++)
         {
             chosenBase = base(gen);
             a = bases[chosenBase];

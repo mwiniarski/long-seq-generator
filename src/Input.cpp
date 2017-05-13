@@ -9,7 +9,7 @@ void Input::findParameter(std::string &arg1, std::string &arg2) {
 
     } else
     if(arg1 == "-E") {
-        errorRate = stof(arg2);
+        errorRate = stoi(arg2);
 
         if(errorRate < 0 || errorRate > 99)
             throwError("Error rate must be between 0 and 99.");
@@ -26,7 +26,7 @@ void Input::findParameter(std::string &arg1, std::string &arg2) {
 }
 
 Input::Input(int count_, const char** argv_)
-    :coverage(10), readsLength(10000), errorRate(0.0f)
+    :coverage(5), readsLength(5000), errorRate(0)
 {
     //argument count is always even
     if (count_%2 != 0 || count_ < 2)
