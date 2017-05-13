@@ -10,12 +10,15 @@ public:
 
     float getErrorRate() {return errorRate;}
     int getReadsLength() {return readsLength;}
-    int getReadsCount() {return readsCount;}
+    int getCoverage() {return coverage;}
+    int getSequenceLength() {return sequenceLength;}
 private:
+    void findParameter(std::string &arg1, std::string &arg2);
     void throwError(std::string msg);
 
+    int sequenceLength;
+    int coverage;
     int readsLength;
-    int readsCount;
     float errorRate;
 };
 

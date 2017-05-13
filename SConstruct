@@ -31,7 +31,6 @@ def create_env():
     Export('env')
     env.Append(CCFLAGS=['-Wall', '-Wextra', '-Wpedantic', '-Werror',
                         '--std=c++14', '-O2'])
-
     return env
 
 def build_executable(env):

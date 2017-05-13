@@ -1,7 +1,7 @@
 # -*- python -*-
 Import('env')
 
-lib = env.StaticLibrary('lib', ['Input.cpp'])
+lib = env.StaticLibrary('lib', ['Input.cpp', 'Generator.cpp'])
 
 env.BoostTests(Glob('tests/*.cpp'), lib)
 
